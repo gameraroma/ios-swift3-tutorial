@@ -11,11 +11,20 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
+
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    var item: Item?
     
-    @IBAction func setTextLabel(_ sender: UIButton) {
-        nameLabel.text = nameTextField.text
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if saveButton === sender as! UIBarButtonItem {
+            let name = nameTextField.text ?? ""
+            item = Item(name: name)
+        }
     }
 
     override func viewDidLoad() {
