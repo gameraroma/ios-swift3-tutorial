@@ -15,13 +15,29 @@ class ItemTableViewController: UITableViewController {
     func loadSampleItems() {
         items += [Item(name:"item1"), Item(name:"item2"), Item(name:"item3")]
     }
+    
+    func saveItems() {
+        let isSaved = NSKeyedArchiver.archiveRootObject(items, toFile: Item.ArchiveURL.path)
+        if !isSaved {
+            print("Failed to save items...")
+        }
+    }
+    
+    func loadItems() -> [Item]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Item.ArchiveURL.path) as? [Item]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadSampleItems()
         
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        // load items
+        if let savedItems = loadItems() {
+            items += savedItems
+        } else {
+            loadSampleItems()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +79,8 @@ class ItemTableViewController: UITableViewController {
             
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
             }
+            // save items
+            saveItems()
         }
     }
     
@@ -86,6 +104,8 @@ class ItemTableViewController: UITableViewController {
         if editingStyle == .delete {
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            // save items
+            saveItems()
         } else if editingStyle == .insert {
         }
     }
