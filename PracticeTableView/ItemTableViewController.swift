@@ -52,10 +52,31 @@ class ItemTableViewController: UITableViewController {
         let srcViewCon = sender.source as? ViewController
         let item = srcViewCon?.item
         if (srcViewCon != nil && item?.name != "") {
-            let newIndexPath = NSIndexPath(row: items.count, section: 0)
-            items.append(item!)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                items[selectedIndexPath.row] = item!
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                let newIndexPath = IndexPath(row: items.count, section: 0)
+                items.append(item!)
             
-            tableView.insertRows(at: [newIndexPath as IndexPath], with: .bottom)
+                tableView.insertRows(at: [newIndexPath], with: .bottom)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "ShowDetail" {
+            let detailVC = segue.destination as! ViewController
+            
+            if let selectedCell = sender as? ItemTableViewCell {
+                let indexPath = tableView.indexPath(for: selectedCell)!
+                let selectedItem = items[indexPath.row]
+                detailVC.item = selectedItem
+            }
+        } else if segue.identifier == "AddItem" {
+            
         }
     }
 }
