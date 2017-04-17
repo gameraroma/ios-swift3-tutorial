@@ -13,6 +13,7 @@
 		343AB9231EA31A940070AEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343AB9221EA31A940070AEA3 /* Assets.xcassets */; };
 		343AB9261EA31A940070AEA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 343AB9241EA31A940070AEA3 /* LaunchScreen.storyboard */; };
 		34418E971EA47301001E16D5 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34418E961EA47301001E16D5 /* ItemTableViewCell.swift */; };
+		34B25C4E1EA47428002CFE91 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B25C4D1EA47428002CFE91 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		343AB9251EA31A940070AEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		343AB9271EA31A940070AEA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34418E961EA47301001E16D5 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		34B25C4D1EA47428002CFE91 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				343AB91B1EA31A940070AEA3 /* AppDelegate.swift */,
 				343AB91D1EA31A940070AEA3 /* ViewController.swift */,
 				343AB91F1EA31A940070AEA3 /* Main.storyboard */,
+				34B25C4D1EA47428002CFE91 /* Item.swift */,
 				34418E961EA47301001E16D5 /* ItemTableViewCell.swift */,
 				343AB9221EA31A940070AEA3 /* Assets.xcassets */,
 				343AB9241EA31A940070AEA3 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B25C4E1EA47428002CFE91 /* Item.swift in Sources */,
 				343AB91E1EA31A940070AEA3 /* ViewController.swift in Sources */,
 				34418E971EA47301001E16D5 /* ItemTableViewCell.swift in Sources */,
 				343AB91C1EA31A940070AEA3 /* AppDelegate.swift in Sources */,
